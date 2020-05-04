@@ -84,3 +84,14 @@ ejercicioFizzBuzzPro();
 
 // Calcular el promedio de todos los números en un array de números. (y ponerlo en una función)
 // ej.: calcularPromedio([10,5,4,2,8])
+
+function calcularPromedios(numeros){
+    let sumaNumeros = 0;
+    for (let i = 0; i < numeros.length; i++){
+        sumaNumeros = sumaNumeros + numeros[i];
+    }
+    console.log(`El promedio de notas es ${sumaNumeros/numeros.length}`);
+}
+
+const numeros = [10,6,7,4]
+calcularPromedios(numeros);
