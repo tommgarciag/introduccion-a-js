@@ -11,7 +11,28 @@ siguientePaso.onclick = function(event){
     const $cantidadVideos = document.querySelector("#cantidad-videos");
     const cantidadVideos = $cantidadVideos.value;
 
+    borrarInputTiempos();
+
     crearInputTiempos(cantidadVideos);
+    event.preventDefault();
+}
+
+const botonReset = document.querySelector("#resetear");
+botonReset.onclick = function(){
+    resetear();
+
+}
+
+function resetear(){
+    borrarInputTiempos();
+}
+
+function borrarInputTiempos(){
+    const $inputTiempo = document.querySelectorAll(".tiempos");
+    for ( let i = 0; i < $inputTiempo.length; i++){
+        $inputTiempo[i].remove();
+    }
+
 }
 
 function crearInputTiempos(cantidadVideos){
@@ -22,6 +43,7 @@ function crearInputTiempos(cantidadVideos){
 
 function crearTiempo(indice){
     const $div = document.createElement('div');
+    $div.className = 'tiempos';
 
     const $label = document.createElement('label');
     $label.textContent = 'Tiempo del video # ' + (indice + 1);
