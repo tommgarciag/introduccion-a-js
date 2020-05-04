@@ -39,7 +39,7 @@ function calcularSalarioDiario(salarioAnual) {
 const salarioMensual = Number(prompt('Cuál es tu salario mensual?'));
 console.log('Tu salario anual es ' + calcularSalarioAnual(salarioMensual));
 
-const salarioAnual = Number(prompt('Cuál es tu salario mensual?'));
+const salarioAnual = Number(prompt('Cuál es tu salario anual?'));
 console.log('Tu salario mensual es ' + calcularSalarioMensual(salarioAnual));
 console.log('Tu salario semanal es ' + calcularSalarioSemanal(salarioAnual));
 console.log('Tu salario diario es ' + calcularSalarioDiario(salarioAnual));
