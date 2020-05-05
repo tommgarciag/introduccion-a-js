@@ -12,8 +12,11 @@ siguientePaso.onclick = function(event){
     const cantidadVideos = $cantidadVideos.value;
 
     borrarInputTiempos();
+    
 
     crearInputTiempos(cantidadVideos);
+    
+
     event.preventDefault();
 }
 
@@ -23,8 +26,20 @@ botonReset.onclick = function(){
 
 }
 
+const botonCalcularTiempo = document.querySelector("#calcular-tiempos");
+botonCalcularTiempo.onclick = function(event){
+   
+    mostrarTiempo(obtenerTiempo());
+   
+    mostrarResultado();
+
+    event.preventDefault();
+}
+
 function resetear(){
     borrarInputTiempos();
+    ocultarBotonCalcularTiempos();
+    ocultarResultado();
 }
 
 function borrarInputTiempos(){
@@ -36,9 +51,16 @@ function borrarInputTiempos(){
 }
 
 function crearInputTiempos(cantidadVideos){
+    if (cantidadVideos > 0){
+        mostrarBotonCalcularTiempos();
+    }
+    else {
+        resetear();
+    }
     for (let i = 0; i < cantidadVideos; i++){
         crearTiempo(i);
     }
+
 }
 
 function crearTiempo(indice){
@@ -49,14 +71,17 @@ function crearTiempo(indice){
     $label.textContent = 'Tiempo del video # ' + (indice + 1);
 
     const $inputHoras = document.createElement('input');
-    $inputHoras.placeholder = 'Horas';
+    $inputHoras.className = 'horas';
     $inputHoras.type = 'number';
+    
 
     const $inputMinutos = document.createElement('input');
+    $inputMinutos.className = 'minutos';
     $inputMinutos.placeholder = 'Minutos';
     $inputMinutos.type = 'number';
 
     const $inputSegundos = document.createElement('input');
+    $inputSegundos.className = 'segundos';
     $inputSegundos.placeholder = 'Segundos';
     $inputSegundos.type = 'number';
 
@@ -70,3 +95,62 @@ function crearTiempo(indice){
     $formularioVideos.appendChild($div);
     
 }
+
+function mostrarBotonCalcularTiempos(){
+    document.querySelector("#calcular-tiempos").className = '';
+}
+
+function ocultarBotonCalcularTiempos(){
+    document.querySelector("#calcular-tiempos").className = 'oculto';
+}
+
+function mostrarTiempo(valor){
+    document.querySelector('#tiempo-total').textContent = valor;
+}
+
+function mostrarResultado() {
+    document.querySelector('#resultado').className = '';
+}
+
+function ocultarResultado(){
+    document.querySelector("#resultado").className = 'oculto';
+}
+
+
+function obtenerTiempo(){
+    const totalHoras = sumar(obtenerHoras());
+    const totalMinutos = sumar(obtenerMinutos());
+    const totalSegundos = sumar(obtenerSegundos());
+
+    return `${totalHoras} hs. ${totalMinutos} min. ${totalSegundos} seg.`;
+}
+
+function obtenerHoras(){
+    const $horas = document.querySelectorAll('.horas');
+    const horas = [];
+    for ( let i=0; i < $horas.length ;i++){
+        horas.push(Number($horas[i].value));
+    }
+    return horas;
+}
+
+function obtenerMinutos(){
+    const $minutos = document.querySelectorAll('.minutos');
+    const minutos = [];
+    for (let i = 0; i< $minutos.length; i++){
+        minutos.push(Number($minutos[i].value));
+    }
+    return minutos;
+}
+
+function obtenerSegundos(){
+    const $segundos = document.querySelectorAll('.segundos');
+    const segundos = [];
+    for (let i =0; i < $segundos.length; i++){
+        segundos.push(Number($segundos[i].value));
+    }
+    return segundos;
+}
+
+
+
