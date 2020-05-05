@@ -5,3 +5,18 @@
 // 2. obtener el número más pequeño y mostrarlo en un <em> pre-creado con el texto "El número más pequeño es..."
 // 3. obtener el número más grande y mostrarlo en un <em> pre-creado con el texto "El número más grande es..."
 // 4. obtener el número que más se repite y mostrarlo en un <em> pre-creado con el texto "El número más frecuente es..."
+
+
+function obtenerNumeros(){
+    const $lista = document.querySelectorAll("#lista li");
+    const numeros = [];
+    for ( let i = 0; i < $lista.length; i++){
+        numeros.push(Number($lista[i].textContent));
+    }
+    return numeros;
+}
+
+console.log(obtenerNumeros());
+
+
+
