@@ -16,7 +16,21 @@ function obtenerNumeros(){
     return numeros;
 }
 
-console.log(obtenerNumeros());
 
 
+function resultados(){
+    const numeros = obtenerNumeros();
+    
+    mostarResultados('promedio', obtenerPromedio(numeros));
+    mostarResultados('menor', obtenerMenorNumero(numeros)); 
+    mostarResultados('mayor', obtenerMayorNumero(numeros));       
+    mostarResultados('frecuente', obtenerMasFrecuente(numeros));
+
+}
+
+function mostarResultados(tipo,valor){
+    document.querySelector(`#${tipo}`).textContent += valor;
+}
+
+resultados();
 
