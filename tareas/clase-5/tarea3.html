@@ -5,6 +5,7 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Tarea 3 | Clase 5</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="tarea3.css">
 </head>
 <body>
     <h1>Calcula el tiempo que venis dedicando al curso r/argentina programa !</h1>
@@ -13,10 +14,18 @@
         <input type="number" id="cantidad-videos">
         <button type="button" id="siguiente-paso">Siguente paso</button>
         <button type="reset" id="resetear">Resetear</button>
+    
+        <div id="formulario-videos">
+            
+        </div>
+        <button type="button" id="calcular-tiempos" class="oculto">Calcular Tiempos</button>
+        <div id="resultado" class="oculto">
+            <p>La cantidad de tiempo dedicado es de <strong id="tiempo-total"></strong> Segui asi!</p>
+            
+        </div>
     </form>
-    <form id="formulario-videos">
-
-    </form>
+    <script type="text/javascript" src="calculos-tarea-3.js"></script>
     <script type="text/javascript" src="tarea3.js"></script>
+    
 </body>
 </html>
